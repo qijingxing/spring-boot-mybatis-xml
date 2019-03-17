@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neo.mapper.FileDataMapper">
+  <resultMap id="BaseResultMap" type="com.neo.model.FileData">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="file_id" jdbcType="INTEGER" property="fileId" />
+    <result column="small_id" jdbcType="INTEGER" property="smallId" />
+    <result column="name_cn" jdbcType="VARCHAR" property="nameCn" />
+    <result column="accid" jdbcType="VARCHAR" property="accid" />
+    <result column="tele_no" jdbcType="VARCHAR" property="teleNo" />
+    <result column="cid" jdbcType="VARCHAR" property="cid" />
+    <result column="is_join" jdbcType="BIT" property="isJoin" />
+    <result column="is_join_cause" jdbcType="VARCHAR" property="isJoinCause" />
+    <result column="four_tele_know" jdbcType="VARCHAR" property="fourTeleKnow" />
+    <result column="tele_conn" jdbcType="VARCHAR" property="teleConn" />
+    <result column="tele_true" jdbcType="VARCHAR" property="teleTrue" />
+    <result column="join_wechat" jdbcType="BIT" property="joinWechat" />
+    <result column="payment" jdbcType="VARCHAR" property="payment" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+    <result column="complete_status" jdbcType="BIT" property="completeStatus" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="ctime" jdbcType="TIMESTAMP" property="ctime" />
+    <result column="utime" jdbcType="TIMESTAMP" property="utime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, file_id, small_id, name_cn, accid, tele_no, cid, is_join, is_join_cause, four_tele_know, 
+    tele_conn, tele_true, join_wechat, payment, comment, complete_status, status, ctime, 
+    utime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from file_data
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from file_data
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from file_data
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.neo.model.FileData">
+    insert into file_data (id, file_id, small_id, 
+      name_cn, accid, tele_no, 
+      cid, is_join, is_join_cause, 
+      four_tele_know, tele_conn, tele_true, 
+      join_wechat, payment, comment, 
+      complete_status, status, ctime, 
+      utime)
+    values (#{id,jdbcType=INTEGER}, #{fileId,jdbcType=INTEGER}, #{smallId,jdbcType=INTEGER}, 
+      #{nameCn,jdbcType=VARCHAR}, #{accid,jdbcType=VARCHAR}, #{teleNo,jdbcType=VARCHAR}, 
+      #{cid,jdbcType=VARCHAR}, #{isJoin,jdbcType=BIT}, #{isJoinCause,jdbcType=VARCHAR}, 
+      #{fourTeleKnow,jdbcType=VARCHAR}, #{teleConn,jdbcType=VARCHAR}, #{teleTrue,jdbcType=VARCHAR}, 
+      #{joinWechat,jdbcType=BIT}, #{payment,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, 
+      #{completeStatus,jdbcType=BIT}, #{status,jdbcType=TINYINT}, #{ctime,jdbcType=TIMESTAMP}, 
+      #{utime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.neo.model.FileData">
+    insert into file_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="fileId != null">
+        file_id,
+      </if>
+      <if test="smallId != null">
+        small_id,
+      </if>
+      <if test="nameCn != null">
+        name_cn,
+      </if>
+      <if test="accid != null">
+        accid,
+      </if>
+      <if test="teleNo != null">
+        tele_no,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="isJoin != null">
+        is_join,
+      </if>
+      <if test="isJoinCause != null">
+        is_join_cause,
+      </if>
+      <if test="fourTeleKnow != null">
+        four_tele_know,
+      </if>
+      <if test="teleConn != null">
+        tele_conn,
+      </if>
+      <if test="teleTrue != null">
+        tele_true,
+      </if>
+      <if test="joinWechat != null">
+        join_wechat,
+      </if>
+      <if test="payment != null">
+        payment,
+      </if>
+      <if test="comment != null">
+        comment,
+      </if>
+      <if test="completeStatus != null">
+        complete_status,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="ctime != null">
+        ctime,
+      </if>
+      <if test="utime != null">
+        utime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="fileId != null">
+        #{fileId,jdbcType=INTEGER},
+      </if>
+      <if test="smallId != null">
+        #{smallId,jdbcType=INTEGER},
+      </if>
+      <if test="nameCn != null">
+        #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="accid != null">
+        #{accid,jdbcType=VARCHAR},
+      </if>
+      <if test="teleNo != null">
+        #{teleNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=VARCHAR},
+      </if>
+      <if test="isJoin != null">
+        #{isJoin,jdbcType=BIT},
+      </if>
+      <if test="isJoinCause != null">
+        #{isJoinCause,jdbcType=VARCHAR},
+      </if>
+      <if test="fourTeleKnow != null">
+        #{fourTeleKnow,jdbcType=VARCHAR},
+      </if>
+      <if test="teleConn != null">
+        #{teleConn,jdbcType=VARCHAR},
+      </if>
+      <if test="teleTrue != null">
+        #{teleTrue,jdbcType=VARCHAR},
+      </if>
+      <if test="joinWechat != null">
+        #{joinWechat,jdbcType=BIT},
+      </if>
+      <if test="payment != null">
+        #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="completeStatus != null">
+        #{completeStatus,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="ctime != null">
+        #{ctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="utime != null">
+        #{utime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neo.model.FileData">
+    update file_data
+    <set>
+      <if test="fileId != null">
+        file_id = #{fileId,jdbcType=INTEGER},
+      </if>
+      <if test="smallId != null">
+        small_id = #{smallId,jdbcType=INTEGER},
+      </if>
+      <if test="nameCn != null">
+        name_cn = #{nameCn,jdbcType=VARCHAR},
+      </if>
+      <if test="accid != null">
+        accid = #{accid,jdbcType=VARCHAR},
+      </if>
+      <if test="teleNo != null">
+        tele_no = #{teleNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=VARCHAR},
+      </if>
+      <if test="isJoin != null">
+        is_join = #{isJoin,jdbcType=BIT},
+      </if>
+      <if test="isJoinCause != null">
+        is_join_cause = #{isJoinCause,jdbcType=VARCHAR},
+      </if>
+      <if test="fourTeleKnow != null">
+        four_tele_know = #{fourTeleKnow,jdbcType=VARCHAR},
+      </if>
+      <if test="teleConn != null">
+        tele_conn = #{teleConn,jdbcType=VARCHAR},
+      </if>
+      <if test="teleTrue != null">
+        tele_true = #{teleTrue,jdbcType=VARCHAR},
+      </if>
+      <if test="joinWechat != null">
+        join_wechat = #{joinWechat,jdbcType=BIT},
+      </if>
+      <if test="payment != null">
+        payment = #{payment,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="completeStatus != null">
+        complete_status = #{completeStatus,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="ctime != null">
+        ctime = #{ctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="utime != null">
+        utime = #{utime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neo.model.FileData">
+    update file_data
+    set file_id = #{fileId,jdbcType=INTEGER},
+      small_id = #{smallId,jdbcType=INTEGER},
+      name_cn = #{nameCn,jdbcType=VARCHAR},
+      accid = #{accid,jdbcType=VARCHAR},
+      tele_no = #{teleNo,jdbcType=VARCHAR},
+      cid = #{cid,jdbcType=VARCHAR},
+      is_join = #{isJoin,jdbcType=BIT},
+      is_join_cause = #{isJoinCause,jdbcType=VARCHAR},
+      four_tele_know = #{fourTeleKnow,jdbcType=VARCHAR},
+      tele_conn = #{teleConn,jdbcType=VARCHAR},
+      tele_true = #{teleTrue,jdbcType=VARCHAR},
+      join_wechat = #{joinWechat,jdbcType=BIT},
+      payment = #{payment,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      complete_status = #{completeStatus,jdbcType=BIT},
+      status = #{status,jdbcType=TINYINT},
+      ctime = #{ctime,jdbcType=TIMESTAMP},
+      utime = #{utime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
