@@ -26,9 +26,10 @@ public class FiledataController {
     private FiledataService filedataService;
 
     @RequestMapping(value ="/filedataSelectAll" , method = RequestMethod.GET)
-    public Object filedataSelectAll(String username, String password){
+    public Object filedataSelectAll(String id){
         HashMap<String, Object> stringObjectHashMap = new HashMap<String, Object>();
-        List<FileData> fileDataList = filedataService.selectAll();
+        //List<FileData> fileDataList = filedataService.selectAll();
+        List<FileData> fileDataList = filedataService.selectAllbyid(id);
         stringObjectHashMap.put("datalist",fileDataList);
 
        return  stringObjectHashMap;

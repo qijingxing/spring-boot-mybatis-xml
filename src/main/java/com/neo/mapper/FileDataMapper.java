@@ -18,4 +18,6 @@ public interface FileDataMapper {
     int updateByPrimaryKey(FileData record);
 
     List<FileData> selectAll();
+
+    List<FileData> selectAllbyid(String id);
 }

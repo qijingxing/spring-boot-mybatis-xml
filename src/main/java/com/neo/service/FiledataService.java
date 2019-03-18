@@ -27,4 +27,8 @@ public class FiledataService {
     public int updateByPrimaryKey(FileData fileData) {
         return fileDataMapper.updateByPrimaryKey(fileData);
     }
+
+    public List<FileData> selectAllbyid(String id) {
+        return fileDataMapper.selectAllbyid(id);
+    }
 }

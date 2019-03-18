@@ -38,6 +38,11 @@
     <include refid="Base_Column_List" />
     from file_data
   </select>
+  <select id="selectAllbyid" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from file_data where cid like concat('%',#{cid},'%')
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from file_data
     where id = #{id,jdbcType=INTEGER}
