@@ -33,6 +33,7 @@ import java.io.IOException;
             addInterceptor.excludePathPatterns("/login**");
             addInterceptor.excludePathPatterns("/filedataSelectAll");
             addInterceptor.excludePathPatterns("/filedataSelectById");
+            addInterceptor.excludePathPatterns("/updateFileDataSelectById");
 
             addInterceptor.addPathPatterns("/**");
         }

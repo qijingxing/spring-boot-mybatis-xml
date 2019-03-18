@@ -1,7 +1,6 @@
 package com.neo.service;
 
 import com.neo.mapper.FileDataMapper;
-import com.neo.mapper.UserMapper;
 import com.neo.model.FileData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,5 +22,9 @@ public class FiledataService {
 
     public FileData filedataSelectById(String id) {
         return fileDataMapper.selectByPrimaryKey(Integer.valueOf(id));
+    }
+
+    public int updateByPrimaryKey(FileData fileData) {
+        return fileDataMapper.updateByPrimaryKey(fileData);
     }
 }
