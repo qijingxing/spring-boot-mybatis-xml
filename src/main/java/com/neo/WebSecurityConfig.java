@@ -34,6 +34,7 @@ import java.io.IOException;
             addInterceptor.excludePathPatterns("/filedataSelectAll");
             addInterceptor.excludePathPatterns("/filedataSelectById");
             addInterceptor.excludePathPatterns("/updateFileDataSelectById");
+            addInterceptor.excludePathPatterns("/getGroupList");
 
             addInterceptor.addPathPatterns("/**");
         }
