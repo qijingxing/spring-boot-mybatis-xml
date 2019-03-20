@@ -30,7 +30,16 @@ public class FiledataController {
         HashMap<String, Object> stringObjectHashMap = new HashMap<String, Object>();
         //List<FileData> fileDataList = filedataService.selectAll();
         System.out.println(groupId+"------------------------------------------");
-        List<FileData> fileDataList = filedataService.selectAllbyid(id);
+        //List<FileData> fileDataList = filedataService.selectAllbyid(id);
+        Integer i = null;
+        if(groupId!=null && groupId !="") {
+            i = Integer.valueOf(groupId);
+        }
+
+        FileData fileData = new FileData();
+        fileData.setCid(id);
+        fileData.setSmallId(i);
+        List<FileData> fileDataList = filedataService.selectAllByIdAndGroupId(fileData);
         stringObjectHashMap.put("datalist",fileDataList);
 
        return  stringObjectHashMap;

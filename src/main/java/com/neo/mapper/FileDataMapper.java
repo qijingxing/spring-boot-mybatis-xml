@@ -20,4 +20,6 @@ public interface FileDataMapper {
     List<FileData> selectAll();
 
     List<FileData> selectAllbyid(String id);
+
+    List<FileData> selectAllByIdAndGroupId(FileData fileData);
 }

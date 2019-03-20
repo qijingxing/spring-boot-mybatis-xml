@@ -31,4 +31,8 @@ public class FiledataService {
     public List<FileData> selectAllbyid(String id) {
         return fileDataMapper.selectAllbyid(id);
     }
+
+    public List<FileData> selectAllByIdAndGroupId(FileData fileData) {
+       return   fileDataMapper.selectAllByIdAndGroupId(fileData);
+    }
 }
